@@ -82,6 +82,16 @@ public:
   bool setPayload(const double mass, const vector3d_t* cog);
 
   /*!
+   * \brief Set the gravity vector
+   *
+   * \param gravity Gravity, a vector [x, y, z] specifying the acceleration experience by the robot (pointing away 
+   * from the Earth's center)
+   *
+   * \returns True, if the write was performed successfully, false otherwise.
+   */
+  bool setGravity(const vector3d_t* gravity);
+
+  /*!
    * \brief Set the tool voltage.
    *
    * \param voltage Tool voltage
@@ -175,6 +185,7 @@ private:
     END_FORCE_MODE = 4,      ///< End force mode
     START_TOOL_CONTACT = 5,  ///< Start detecting tool contact
     END_TOOL_CONTACT = 6,    ///< End detecting tool contact
+    SET_GRAVITY = 7,         ///< End detecting tool contact
   };
 
   bool client_connected_;
